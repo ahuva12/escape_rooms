@@ -1,0 +1,20 @@
+.Rooms {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.title {
+    color: brown;
+}
+
+.contact_link{
+}
+
+.roomCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1rf);
+    gap: 1rem;
+}

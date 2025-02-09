@@ -1,0 +1,15 @@
+.nav {
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    width: 100%; 
+    position: fixed; 
+    top: 0;  
+    left: 0;
+}
+
+.link{
+    background-color: red;
+    margin: 1rem;
+}

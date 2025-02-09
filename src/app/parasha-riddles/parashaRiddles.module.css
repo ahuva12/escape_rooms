@@ -1,0 +1,21 @@
+.ParashaRiddles{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.title {
+    color: brown;
+}
+
+.second_title {
+    color: brown;
+}
+
+.parashaRiddleCards_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1rf);
+    gap: 1rem;
+}

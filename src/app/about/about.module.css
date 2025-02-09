@@ -1,0 +1,42 @@
+.aboutContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+.title {
+    
+}
+
+.aboutContent {
+    
+}
+
+.aboutContainer {
+    
+}
+
+.link_escapeRooms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link_escapeRooms p{
+    
+}
+
+.link_escapeRooms a{
+    
+}
+
+.contactButton {
+    margin-top: 1rem;
+
+}
+
+
+

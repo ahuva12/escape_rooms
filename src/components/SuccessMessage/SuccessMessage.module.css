@@ -1,0 +1,25 @@
+.roomCardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nameRoom{
+    color: brown;
+}
+
+.imageRoom{
+    width: 10rem;
+}
+
+.descriptionRoom{
+    color: brown;
+}   
+
+.more_details_button{
+    border: 1px blue soild;
+    border-radius: 3px;
+    background-color: rgb(54, 60, 247);
+    cursor: pointer;
+}

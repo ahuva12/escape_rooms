@@ -1,0 +1,127 @@
+.RoomModel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: yellow;
+    position: fixed;
+    
+}
+
+.closeButton {
+    
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    
+}
+
+.header p {
+    background-color: aqua;
+    
+}
+
+.img_recommendations {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background-color: red;
+    
+}
+
+.img_recommendations img {
+    width: 20rem;
+}
+
+.recommendation {
+    
+}
+
+.tags {
+    
+}
+
+.description {
+    
+}
+
+.want_take_peek_inside {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.want_take_peek_inside div{
+    
+}
+
+.want_take_peek_inside button{
+    
+}
+
+.price {
+    
+}
+
+.order_now_button {
+    
+}
+
+.imageIndicators {
+    display: flex;
+    flex-direction: row-reverse; 
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: lightgray;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.indicator.active {
+    background-color: black;
+}
+
+.imageContainer {
+    position: relative;
+    width: 20rem;
+    height: 15rem; /* וודא גובה קבוע */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.imageWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease-in-out;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fadeOut {
+    opacity: 0;
+}
+
+.fadeIn {
+    opacity: 1;
+}
+
+
