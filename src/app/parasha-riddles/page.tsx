@@ -1,28 +1,35 @@
 'use client';
 import styles from './parashaRiddles.module.css';
+import { useState, useEffect } from 'react';
 import { ParashaRiddleCard } from '@/components';
+import { Parashot } from '@/services/parasha/parashaUtil';
+import { getCurrentParasha } from '@/services/parasha/parasha';
 
-function ParashaRiddles() {
-    return (
-      <div className={styles.ParashaRiddles}>
-        <h1 className={styles.title}>חידות לפרשת השבוע</h1>
-        <h2 className={styles.second_title}>מומלץ להדפיס ולשאול את הילדים בסעודת השבת</h2>
-        <div className={styles.parashaRiddleCards_container}>
-          <ParashaRiddleCard parashaName='בראשית'/>
-          <ParashaRiddleCard parashaName='נח'/>
-          <ParashaRiddleCard parashaName='לך-לך'/>
-          <ParashaRiddleCard parashaName='וירא'/>
-          <ParashaRiddleCard parashaName='חיי-שרה'/>
-          <ParashaRiddleCard parashaName='תולדות'/>
-          <ParashaRiddleCard parashaName='ויצא'/>
-          <ParashaRiddleCard parashaName='וישלח'/>
-          <ParashaRiddleCard parashaName='וישב'/>
-          <ParashaRiddleCard parashaName='מקץ'/>
-          <ParashaRiddleCard parashaName='ויגש'/>
-          <ParashaRiddleCard parashaName='ויחי'/>
-        </div>
+const ParashaRiddles = () => {
+  let currentParasha='parasha';
+  useEffect(() => {
+    const setCurrentParasha = async () => {
+      try {
+        const res = await getCurrentParasha();
+        currentParasha = res.parasha;
+        console.log(currentParasha)
+      } catch(error) {
+        console.log(error)
+      }
+    }
+    setCurrentParasha();
+
+  }, []);
+
+  return (
+    <div className={styles.ParashaRiddles}>
+      <h1 className={styles.title}>חידות לפרשת השבוע</h1>
+      <h2 className={styles.second_title}>מומלץ להדפיס ולשאול את הילדים בסעודת השבת</h2>
+      <div className={styles.parashaRiddleCards_container}>
+        <ParashaRiddleCard parasha={Parashot[0]}/>
       </div>
-      );
+    </div>
+    );
 }
 
 export default ParashaRiddles;

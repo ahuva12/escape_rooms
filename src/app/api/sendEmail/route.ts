@@ -7,8 +7,6 @@ const isValidEmail = (email:string) => {
 };
 
 export async function POST(req: Request) {
-  console.log("send mail");
-
   try {
     const { toEmail, subjectEmail, textEmail } = await req.json();
 
