@@ -6,30 +6,41 @@ import { Parashot } from '@/services/parasha/parashaUtil';
 import { getCurrentParasha } from '@/services/parasha/parasha';
 
 const ParashaRiddles = () => {
-  let currentParasha='parasha';
+  const [currentParashaIndex, setCurrentParashaIndex] = useState<number| null>(null);
+
   useEffect(() => {
     const setCurrentParasha = async () => {
       try {
         const res = await getCurrentParasha();
-        currentParasha = res.parasha;
-        console.log(currentParasha)
+        const index = Parashot.findIndex(parasha => parasha.name === res.parasha);
+        setCurrentParashaIndex(index); 
       } catch(error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
     setCurrentParasha();
+  }, []); 
 
-  }, []);
+  if (currentParashaIndex === null) {
+    return <div>Loading...</div>;
+  }
+
+  const rotatedParashot = [
+    ...Parashot.slice(currentParashaIndex),
+    ...Parashot.slice(0, currentParashaIndex)
+  ];
 
   return (
     <div className={styles.ParashaRiddles}>
       <h1 className={styles.title}>חידות לפרשת השבוע</h1>
       <h2 className={styles.second_title}>מומלץ להדפיס ולשאול את הילדים בסעודת השבת</h2>
       <div className={styles.parashaRiddleCards_container}>
-        <ParashaRiddleCard parasha={Parashot[0]}/>
+        {rotatedParashot.map(parasha => (
+          <ParashaRiddleCard key={parasha.name} parasha={parasha} />
+        ))}
       </div>
     </div>
-    );
-}
+  );
+};
 
 export default ParashaRiddles;
