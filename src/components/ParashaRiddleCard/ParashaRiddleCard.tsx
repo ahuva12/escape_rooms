@@ -7,10 +7,10 @@ type Parasha = {
     solution: string;
 };
 
-const ParashaRiddleCard = (props: { parasha: Parasha }) => {
+const ParashaRiddleCard = ({ parasha }: { parasha: Parasha }) => {
     return (
         <div className={styles.ParashaRiddleCard}>
-            <div className={styles.content}>חידה לפרשת {props.parasha.hebrewName}</div>
+            <div className={styles.content}>חידה לפרשת {parasha.hebrewName}</div>
         </div>
     );
 }
