@@ -18,6 +18,14 @@ const Contact = () => {
   const onSubmit: SubmitHandler<ContactFormFileds> = async (data) => {
     console.log(data);
     try {
+      const textEmail = `
+        <div style="direction: rtl; text-align: right;">
+          <strong>שלום חנה</strong>,<br /><br />
+          אנחנו שמחים לעדכן אותך שהמשתמש <strong>${user.firstName} ${user.lastName}</strong> נרשם לפעילות שהצעת - <strong>${selectedActivity?.nameActivity}</strong>.<br /><br />
+          העברנו לו את פרטי הקשר שלך והוא יצור איתך קשר בהקדם.<br /><br />
+          יתרת השעות שלך עומדת על: <strong>${giverDetails?.remainingHours as number + selectedActivity?.durationHours}</strong><br />
+        </div>
+      `,
       const res = await sendEmail({toEmail:'ahuvareshit@gmail.com', subjectEmail:'הודעה מאתר שלך', textEmail:data.name+' '+data.email+' '+data.phone+' '+data.content});
       console.log(res)
     } catch {
