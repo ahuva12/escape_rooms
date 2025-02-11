@@ -6,6 +6,9 @@ export { default as RoomModel } from './RoomModel/RoomModel';
 export { default as RoomOrdering } from './RoomOrdering/RoomOrdering';
 export { default as RoomCard } from './RoomCard/RoomCard';
 export { default as SuccessMessage } from './SuccessMessage/SuccessMessage';
+export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
+
+
 
 
 

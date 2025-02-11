@@ -1,6 +1,6 @@
 'use client';
 import styles from './home.module.css';
-import { RoomModel } from '@/components/index';
+import { RoomModel } from '@/components';
 import { useState } from 'react';
 import { EscapeRoom } from '../../types/EscapeRoom';
 import { get_escape_room_details } from '../../services/escapeRoomsUtils';
@@ -42,6 +42,9 @@ function Home() {
           <h1>חדרי בריחה</h1>
           <h2>לאורך הזמן ומעגל השנה</h2>
           <h3>...החוויה שלכם מתחילה כאן</h3>
+        </div>
+        <div className={styles.riddlesButton}>
+          <a href="/parasha-riddles">חדש! חידות לפרשת השבוע בכל שבוע</a>
         </div>
 
         <video src="/images/video_home.mp4" width="640" height="360" 

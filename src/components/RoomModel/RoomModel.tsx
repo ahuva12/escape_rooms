@@ -1,6 +1,7 @@
 import styles from './RoomModel.module.css';
 import { EscapeRoom } from '../../types/EscapeRoom';
 import { useState, useEffect } from 'react';
+import { RoomOrdering } from '@/components';
 
 interface RoomModelProps {
     escapeRoom: EscapeRoom;
@@ -10,6 +11,7 @@ interface RoomModelProps {
 
 function RoomModel({escapeRoom, handle_want_take_peek_inside, handle_close_room_model} : RoomModelProps) {
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+    const [isRoomOrdering, setIsRoomOrdering] = useState<boolean>(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -18,6 +20,14 @@ function RoomModel({escapeRoom, handle_want_take_peek_inside, handle_close_room_
 
         return () => clearInterval(interval);
     }, [escapeRoom.images.length]);
+
+    // const handleOrderNow = () => {
+    //     setIsRoomOrdering(true);
+    // }
+
+    const handle_control_room_model = () => {
+        setIsRoomOrdering(prev => !prev);
+    }
 
 
     return (
@@ -59,7 +69,8 @@ function RoomModel({escapeRoom, handle_want_take_peek_inside, handle_close_room_
                 <button onClick={handle_want_take_peek_inside}>לחצו כאן לפתיחת המשימה הראשונה</button>
             </div>
             <div className={styles.price}>מחיר: {escapeRoom.price} (המחיר לקבוצה של 30 ילדים. יכול להשתנות בהתאם לגודל הקבומה)</div>
-            <button className={styles.order_now_button}>הזמינו עכשיו!</button>
+            <button className={styles.order_now_button} onClick={handle_control_room_model}>הזמינו עכשיו!</button>
+            {isRoomOrdering && <RoomOrdering roomName={escapeRoom.name} handle_close_roomOrdering={handle_control_room_model}/>}
         </div>
       );
 }

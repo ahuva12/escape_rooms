@@ -36,27 +36,27 @@ function Rooms() {
 
           <div className={styles.roomCards}>
             <RoomCard nameRoom='בעקבות ארון הברית'
-                      imageRoom='/src/assets/images/57944_96ef002a-f45d-4eb5-9fd2-1a33ff32d330.jpg'
+                      imageRoom='/images/57944_96ef002a-f45d-4eb5-9fd2-1a33ff32d330.jpg'
                       descriptionRoom='בואו איתנו להתחקות אחר ארון הברית האבוד'
                       handle_more_details={()=>handle_more_details('aron-habrit')}/>
 
             <RoomCard nameRoom='עד שנמצא אותו'
-                      imageRoom='/src/assets/images/escape_room.png'
+                      imageRoom='/images/escape_room.png'
                       descriptionRoom='...כבר כמעט יוצאים ממצרים. אבל רגע, משהו אחד חסר'
                       handle_more_details={()=>handle_more_details('ad-shenimza')}/>
 
             <RoomCard nameRoom='המירוץ אל השמן'
-                      imageRoom='/src/assets/images/maxresdefault.jpg'
+                      imageRoom='/images/maxresdefault.jpg'
                       descriptionRoom='עזרו לנו למצוא שמן טהור להדליק בו את המנורה'
                       handle_more_details={()=>handle_more_details('hamerozt-el-hashemen')}/>
 
             <RoomCard nameRoom='בעקבות התמרים האבודים'
-                      imageRoom='/src/assets/images/escape-the-room.jpg'
+                      imageRoom='/images/escape-the-room.jpg'
                       descriptionRoom='אין כמו התמר לספר את סיפורה של הארץ הזאת'
                       handle_more_details={()=>handle_more_details('beikvot-hatmarim')}/>
 
             <RoomCard nameRoom='שמיטה - חדר בריחה וירטואלי'
-                      imageRoom='/src/assets/images/maxresdefault.jpg'
+                      imageRoom='/images/maxresdefault.jpg'
                       descriptionRoom='בואו ללמוד ולגות דברים חדשים על מצוות השמיטה'
                       handle_more_details={()=>handle_more_details('shmita')}/>
           </div>

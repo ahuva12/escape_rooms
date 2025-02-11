@@ -1,5 +1,13 @@
 import styles from './RoomOrdering.module.css';
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from 'react';
+import { sendEmail } from '@/services/email/sendEmailClient';
+import { SuccessMessage, ErrorMessage } from '@/components';
+
+interface RoomOrderingProps {
+  roomName: string;
+  handle_close_roomOrdering: () => void;
+}
 
 type RoomOrderingFormFileds = {
   phone: string
@@ -10,20 +18,40 @@ type RoomOrderingFormFileds = {
   groupSize: number;
   framework: string;
 };
-
-const RoomOrdering = (props: {roomName: string}) => {
   
-  const {register, handleSubmit, formState: { errors },
-  } = useForm<RoomOrderingFormFileds>();
+const RoomOrdering: React.FC<RoomOrderingProps> = ({ roomName, handle_close_roomOrdering }) => {
+  const [isRoomOrdering, setIsRoomOrdering] = useState<boolean>(true);  
+  const [isMessage, setIsMessage] = useState<string | null>(null);  
+  const {register, handleSubmit, formState: { errors },} = useForm<RoomOrderingFormFileds>();
 
-  
-  const onSubmit: SubmitHandler<RoomOrderingFormFileds> = (data) => {
+  const onSubmit: SubmitHandler<RoomOrderingFormFileds> = async (data) => {
     console.log(data);
+    try {
+      const textEmail = `
+        <div style="direction: rtl; text-align: right;">
+          <strong>שלום חנה, מישהו הזמין חדר בריחה דרך האתר שלך!</strong><br /><br />
+          <strong>שם המזמין: </strong>${data.name}<br /><br />
+          <strong>מייל: </strong>${data.email}<br /><br />
+          <strong>טלפון: </strong>${data.phone}<br /><br />
+          <strong>המזמין רוצה את החדר לתאריך: </strong>${data.date} <strong>בשעה: </strong>${data.hour}<br /><br />
+          <strong>ההזמנה עבור קבוצה במסגרת: </strong>${data.framework}<br /><br />
+          <strong>גודל הקבוצה: </strong>${data.groupSize}<br /><br />
+        </div>
+      `;
+      const res = await sendEmail({toEmail:'ahuvareshit@gmail.com', subjectEmail:'הודעה מאתר שלך', textEmail});
+      console.log(res)
+      setIsMessage('success');
+
+    } catch {
+      setIsMessage('error');
+    }
   }
+
+  if (!isRoomOrdering) return null
 
   return (
     <div className={styles.containerForm} onSubmit={handleSubmit(onSubmit)}>
-        <h1 className={styles.title}>הזמנת חדר בריחה: {props.roomName}</h1>
+        <h1 className={styles.title}>הזמנת חדר בריחה: {roomName}</h1>
         <form className={styles.form} >
           <div className={styles.formField}>
             <label>:שם</label>
@@ -111,7 +139,13 @@ const RoomOrdering = (props: {roomName: string}) => {
           </div>
 
           <button className={styles.submitButton} type="submit">הזמן</button>
-        </form>       
+        </form> 
+        {isMessage === 'success' ? (
+          <SuccessMessage contentMessage={`הזמנת חדר הבריחה ${roomName} בוצעה בהצלחה! ניצור איתך קשר בהקדם`} handle_close_success_message={handle_close_roomOrdering} />
+        ) : isMessage === 'error' ? (
+          <ErrorMessage contentMessage={'אופס... תקלה במערכת. תוכל לנסות שוב בעוד מספר דקות'} handle_close_error_message={()=>setIsRoomOrdering(false)}/> 
+        ) : null}
+        
     </div>
 );
 }
