@@ -1,0 +1,15 @@
+.FirstTask {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image {
+    width: 50rem;
+    margin: 1rem;
+}
+.MdAdsClick {
+    cursor: pointer;
+}

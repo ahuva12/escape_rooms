@@ -17,7 +17,7 @@ export const get_escape_room_details = (RoomName:string) : EscapeRoom => {
             price: 500,         
           }
           break;
-      case 'ad-shenimza':
+      case 'ad-shenimtza':
           return {
             name: 'עד שנמצא אותו',
             shortDescription: 'בואו איתנו להתחקות אחר ארון הברית האבוד',
@@ -32,9 +32,9 @@ export const get_escape_room_details = (RoomName:string) : EscapeRoom => {
             price: 500,        
           }         
           break;
-      case 'hamerozt-el-hashemen':
+      case 'hamerotz-el-hashemen':
         return {
-            name: 'המרוץ אל השמן',
+            name: 'המירוץ אל השמן',
             shortDescription: 'בואו איתנו להתחקות אחר ארון הברית האבוד',
             images: ['/images/escape_room.png',
               '/images/57944_96ef002a-f45d-4eb5-9fd2-1a33ff32d330.jpg', 
