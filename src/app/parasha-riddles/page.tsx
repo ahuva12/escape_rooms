@@ -36,7 +36,8 @@ const ParashaRiddles = () => {
       <h2 className={styles.second_title}>מומלץ להדפיס ולשאול את הילדים בסעודת השבת</h2>
       <div className={styles.parashaRiddleCards_container}>
         {rotatedParashot.map(parasha => (
-          <ParashaRiddleCard key={parasha.name} parasha={parasha} />
+          <div onClick={()=> window.open(parasha.riddle, "_blank")}>חידה לפרשת {parasha.hebrewName}</div>
+          // <ParashaRiddleCard key={parasha.name} parasha={parasha} />
         ))}
       </div>
     </div>

@@ -11,7 +11,7 @@ const FirstTaskPage = ({ params }: { params: { room : string}}) => {
   // const params = useParams();
     return (
         <div className={styles.FirstTask}>
-          <h1>לחצו על סימן המטרה לפתיחת המשימה הראשונה:</h1>
+          <h1>מצאו את סימן המטרה ולחצו עליו על מנת לפתוח את המשימה הראשונה:</h1>
           <h1>{params.room}</h1>
           <img className={styles.image} src={`/images/shimshonits/${params.room}.jpg`} alt="תמונה לא נתמכת" />
           <MdAdsClick onClick={() => setIsStartTask(true)} className={styles.MdAdsClick} size={30}/>

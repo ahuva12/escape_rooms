@@ -1,11 +1,5 @@
 import styles from './ParashaRiddleCard.module.css';
-
-type Parasha = {
-    name: string;
-    hebrewName: string;
-    riddle: string;
-    solution: string;
-};
+import { Parasha } from '@/types/Parasha';
 
 const ParashaRiddleCard = ({ parasha }: { parasha: Parasha }) => {
     return (
